@@ -9,8 +9,7 @@
             string? user;
             string? user2;
             string? response;
-            string filePath = @"C:\Users\david\source\repos\Accountability\Accountability\Profiles.txt";
-            //string filePath1 = @"C:\Users\david\source\repos\Accountability\Accountability\Activities.txt";
+            string filePath = @"C:\Users\david\source\repos\Mut_Accout\Mut_Accout\Profiles.txt"; //will have to path correctly if cloned
             string? date;
 
             date = DateTime.Now.ToString("MM/dd/yyyy hh:mm tt");
@@ -87,7 +86,7 @@
             }
             else if (response == "2")
             {
-                Console.WriteLine("Welcome Back! Please enter your user name.");
+                Console.WriteLine("Welcome Back! Please enter your email name.");
                 email = Console.ReadLine();
 
                 if (string.IsNullOrEmpty(email))
@@ -115,7 +114,7 @@
 
         private static void AcctList()
         {
-            string filePath1 = @"C:\Users\david\source\repos\Accountability\Accountability\Activities.txt";
+            string filePath1 = @"C:\Users\david\source\repos\Mut_Accout\Mut_Accout\Activities.txt"; //will have to path correctly if cloned
 
             List<Activities> people = new List<Activities>();
             List<string> lines1 = File.ReadAllLines(filePath1).ToList();
