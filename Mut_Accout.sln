@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32421.90
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mut_Accout", "Mut_Accout\Mut_Accout.csproj", "{DEC37EF6-2B0F-4541-B974-BA091D6922B5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DEC37EF6-2B0F-4541-B974-BA091D6922B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DEC37EF6-2B0F-4541-B974-BA091D6922B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DEC37EF6-2B0F-4541-B974-BA091D6922B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DEC37EF6-2B0F-4541-B974-BA091D6922B5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8258AB56-F6BB-48A7-AFE5-274D06ED282F}
+	EndGlobalSection
+EndGlobal

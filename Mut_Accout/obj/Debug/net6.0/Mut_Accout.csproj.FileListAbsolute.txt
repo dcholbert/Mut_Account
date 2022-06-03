@@ -1,0 +1,15 @@
+C:\Users\david\source\repos\Mut_Accout\Mut_Accout\bin\Debug\net6.0\Mut_Accout.exe
+C:\Users\david\source\repos\Mut_Accout\Mut_Accout\bin\Debug\net6.0\Mut_Accout.deps.json
+C:\Users\david\source\repos\Mut_Accout\Mut_Accout\bin\Debug\net6.0\Mut_Accout.runtimeconfig.json
+C:\Users\david\source\repos\Mut_Accout\Mut_Accout\bin\Debug\net6.0\Mut_Accout.dll
+C:\Users\david\source\repos\Mut_Accout\Mut_Accout\bin\Debug\net6.0\Mut_Accout.pdb
+C:\Users\david\source\repos\Mut_Accout\Mut_Accout\obj\Debug\net6.0\Mut_Accout.csproj.AssemblyReference.cache
+C:\Users\david\source\repos\Mut_Accout\Mut_Accout\obj\Debug\net6.0\Mut_Accout.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\david\source\repos\Mut_Accout\Mut_Accout\obj\Debug\net6.0\Mut_Accout.AssemblyInfoInputs.cache
+C:\Users\david\source\repos\Mut_Accout\Mut_Accout\obj\Debug\net6.0\Mut_Accout.AssemblyInfo.cs
+C:\Users\david\source\repos\Mut_Accout\Mut_Accout\obj\Debug\net6.0\Mut_Accout.csproj.CoreCompileInputs.cache
+C:\Users\david\source\repos\Mut_Accout\Mut_Accout\obj\Debug\net6.0\Mut_Accout.dll
+C:\Users\david\source\repos\Mut_Accout\Mut_Accout\obj\Debug\net6.0\refint\Mut_Accout.dll
+C:\Users\david\source\repos\Mut_Accout\Mut_Accout\obj\Debug\net6.0\Mut_Accout.pdb
+C:\Users\david\source\repos\Mut_Accout\Mut_Accout\obj\Debug\net6.0\Mut_Accout.genruntimeconfig.cache
+C:\Users\david\source\repos\Mut_Accout\Mut_Accout\obj\Debug\net6.0\ref\Mut_Accout.dll
