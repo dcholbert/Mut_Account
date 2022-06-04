@@ -2,19 +2,29 @@
 {
     class Program
     {
+        public static string email { get; set; }
         static void Main(string[] vs)
         {
-            string? email;
-            string? response1;
+
+
+            //string? acct;
+            //string? acct1;
+            //string? acct2;
+
             string? user;
             string? user2;
             string? response;
+            string? response1;
             string filePath = @"C:\Users\david\source\repos\Mut_Accout\Mut_Accout\Profiles.txt"; //will have to path correctly if cloned
+            string filePath2 = @"C:\Users\david\source\repos\Mut_Accout\Mut_Accout\Daily Profiles.txt"; //will have to path correctly if cloned
             string? date;
+            date = DateTime.Now.ToString("MM/dd/yyyy HH:mm");
+            user = null;
 
-            date = DateTime.Now.ToString("MM/dd/yyyy hh:mm tt");
+           
+            
 
-            Console.WriteLine(date + " Are you a new or existing user? 1 - New or  2 - Extisting ");
+            Console.WriteLine(" Are you a new or existing user? 1 - New or  2 - Extisting ");
             response = Console.ReadLine();
             if (response == "1")
             {
@@ -34,16 +44,17 @@
 
                 }
 
-
                 if (user != null && email != null && user2 != null)
                 {
                     if (File.ReadAllText(filePath).Contains(email))
                     {
                         Console.WriteLine("This " + email + " has already have been entered please submit a different email.");
-
+                        //UserEmail();
+                        //return;
                     }
                     else
                     {
+
                         List<Person> people = new List<Person>();
 
                         List<string> lines = File.ReadAllLines(filePath).ToList();
@@ -86,6 +97,8 @@
             }
             else if (response == "2")
             {
+
+
                 Console.WriteLine("Welcome Back! Please enter your email name.");
                 email = Console.ReadLine();
 
@@ -95,26 +108,51 @@
                     Console.WriteLine("User cannot be blank");
 
                 }
-                Console.WriteLine("Will this be a new daily entry? 1 - Yes or 2 - No");
+
+                Console.WriteLine(" Will this be a new daily entry? 1 - Yes or 2 - No");
                 response1 = Console.ReadLine();
 
                 if (response1 == "1")
                 {
-                    AcctList();
+                    AddAcctList();
 
 
                 }
+                if (response1 == "2")
+                { 
+
+                    string [] profile = File.ReadAllLines(filePath2);
+
+
+                   
+                }
 
             }
-
-
-
         }
 
 
-        private static void AcctList()
+
+
+
+
+
+
+
+        private static void AddAcctList()
         {
             string filePath1 = @"C:\Users\david\source\repos\Mut_Accout\Mut_Accout\Activities.txt"; //will have to path correctly if cloned
+            string filePath2 = @"C:\Users\david\source\repos\Mut_Accout\Mut_Accout\Daily Profiles.txt";
+            string? acct;
+            string? acct1;
+            string? acct2;
+            string? date;
+            date = DateTime.Now.ToString("MM/dd/yyyy HH:mm");
+            
+
+
+
+
+
 
             List<Activities> people = new List<Activities>();
             List<string> lines1 = File.ReadAllLines(filePath1).ToList();
@@ -127,15 +165,66 @@
                 newtask.Task = entries[0];
                 people.Add(newtask);
             }
-            //Console.WriteLine("Read From text file");
-
+            Console.WriteLine("List is the following Activities.");
             foreach (var person in people)
             {
+
                 Console.WriteLine(person.Task);
+            }
+            Console.WriteLine("Please choose 3 daily Activities. Press Enter ater each Entry");
+            acct = Console.ReadLine();
+            acct1 = Console.ReadLine();
+            acct2 = Console.ReadLine();
+
+            if (acct != null && acct1 != null && acct2 != null && email != null)
+            {
+                List<AcctTask> AcTask = new List<AcctTask>();
+
+                List<string> lines = File.ReadAllLines(filePath2).ToList();
+
+                foreach (var line in lines)
+                {
+                    string[] entries = line.Split(',');
+                    
+                     AcctTask newAcct = new AcctTask();
+
+                    newAcct.Date = entries[0];
+                    newAcct.Email = entries[1];
+                    newAcct.MutTask = entries[2];
+                    newAcct.MutTask1 = entries[3];
+                    newAcct.MutTask2 = entries[4];
+
+                    AcTask.Add(newAcct);
+                }
+                Console.WriteLine("Read From text file");
+
+                foreach (var task in AcTask)
+                {
+                    Console.WriteLine($"{task.Date}- {task.Email}: {task.MutTask} {task.MutTask1} {task.MutTask2}");
+                }
+                AcTask.Add(new AcctTask { Date = date, Email = email, MutTask = acct, MutTask1 = acct1, MutTask2 = acct2 });
+
+                List<string> output = new List<string>();
+
+                foreach (var task in AcTask)
+                {
+                    output.Add($"{task.Date},{task.Email},{task.MutTask},{task.MutTask1},{task.MutTask2}");
+
+                }
+                Console.WriteLine("Wring to text file");
+
+                File.WriteAllLines(filePath2, output);
+                Console.WriteLine("All entries enter");
+
+                Console.ReadLine();
+
             }
 
 
         }
     }
 }
+
+
+
 
