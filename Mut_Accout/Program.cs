@@ -40,17 +40,16 @@
                 if (string.IsNullOrEmpty(user))
                 {
 
-                    Console.WriteLine("User cannot be blank");
-
+                    Console.WriteLine("User cannot be blank"); //add loop to go back to new user
+                     
                 }
 
                 if (user != null && email != null && user2 != null)
                 {
                     if (File.ReadAllText(filePath).Contains(email))
                     {
-                        Console.WriteLine("This " + email + " has already have been entered please submit a different email.");
-                        //UserEmail();
-                        //return;
+                        Console.WriteLine("This " + email + " has already have been entered please submit a different email."); // add loop 
+                        
                     }
                     else
                     {
@@ -105,7 +104,7 @@
                 if (string.IsNullOrEmpty(email))
                 {
 
-                    Console.WriteLine("User cannot be blank");
+                    Console.WriteLine("User cannot be blank"); //add loop
 
                 }
 
