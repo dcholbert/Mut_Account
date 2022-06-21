@@ -11,11 +11,12 @@ namespace Mut_Accout
     {
         private string _connectionString;
 
-        public Data_Access(IConfiguration configuration) {
+        public Data_Access(IConfiguration configuration)
+        {
             _connectionString = configuration.GetConnectionString("Default");
         }
 
-      
+
     }
 
 }

@@ -21,8 +21,8 @@
             date = DateTime.Now.ToString("MM/dd/yyyy HH:mm");
             user = null;
 
-           
-            
+
+
 
             Console.WriteLine(" Are you a new or existing user? 1 - New or  2 - Extisting ");
             response = Console.ReadLine();
@@ -40,16 +40,16 @@
                 if (string.IsNullOrEmpty(user))
                 {
 
-                    Console.WriteLine("User cannot be blank"); //add loop to go back to new user
-                     
-                }
+                    Console.WriteLine("User cannot be blank");
 
+
+                }
                 if (user != null && email != null && user2 != null)
                 {
                     if (File.ReadAllText(filePath).Contains(email))
                     {
-                        Console.WriteLine("This " + email + " has already have been entered please submit a different email."); // add loop 
-                        
+                        Console.WriteLine("This " + email + " has already have been entered please submit a different email.");
+
                     }
                     else
                     {
@@ -104,7 +104,8 @@
                 if (string.IsNullOrEmpty(email))
                 {
 
-                    Console.WriteLine("User cannot be blank"); //add loop
+                    Console.WriteLine("User cannot be blank");
+
 
                 }
 
@@ -118,23 +119,16 @@
 
                 }
                 if (response1 == "2")
-                { 
+                {
 
-                    string [] profile = File.ReadAllLines(filePath2);
+                    string[] profile = File.ReadAllLines(filePath2);
 
 
-                   
+
                 }
 
             }
         }
-
-
-
-
-
-
-
 
 
         private static void AddAcctList()
@@ -146,7 +140,7 @@
             string? acct2;
             string? date;
             date = DateTime.Now.ToString("MM/dd/yyyy HH:mm");
-            
+
 
 
 
@@ -170,7 +164,7 @@
 
                 Console.WriteLine(person.Task);
             }
-            Console.WriteLine("Please choose 3 daily Activities. Press Enter ater each Entry");
+            Console.WriteLine("Please choose 3 daily Activities. Press Enter after each entry");
             acct = Console.ReadLine();
             acct1 = Console.ReadLine();
             acct2 = Console.ReadLine();
@@ -184,8 +178,8 @@
                 foreach (var line in lines)
                 {
                     string[] entries = line.Split(',');
-                    
-                     AcctTask newAcct = new AcctTask();
+
+                    AcctTask newAcct = new AcctTask();
 
                     newAcct.Date = entries[0];
                     newAcct.Email = entries[1];
@@ -210,7 +204,7 @@
                     output.Add($"{task.Date},{task.Email},{task.MutTask},{task.MutTask1},{task.MutTask2}");
 
                 }
-                Console.WriteLine("Wring to text file");
+                Console.WriteLine("Writing to text file");
 
                 File.WriteAllLines(filePath2, output);
                 Console.WriteLine("All entries enter");
