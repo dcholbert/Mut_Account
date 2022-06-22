@@ -1,4 +1,6 @@
-﻿namespace Accountability
+﻿using Microsoft.Data.SqlClient;
+
+namespace Accountability
 {
     public class Person
     {
@@ -21,4 +23,7 @@
         public string Date { get; set; }
 
     }
+   
+
+    
 }

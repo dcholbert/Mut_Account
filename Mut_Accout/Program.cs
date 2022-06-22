@@ -1,4 +1,6 @@
-﻿namespace Accountability
+﻿using Microsoft.Data.SqlClient;
+
+namespace Accountability
 {
     class Program
     {
@@ -7,25 +9,25 @@
         {
 
 
-            //string? acct;
-            //string? acct1;
-            //string? acct2;
-
             string? user;
             string? user2;
             string? response;
             string? response1;
-            string filePath = @"C:\Users\david\source\repos\Mut_Accout\Mut_Accout\Profiles.txt"; //will have to path correctly if cloned
-            string filePath2 = @"C:\Users\david\source\repos\Mut_Accout\Mut_Accout\Daily Profiles.txt"; //will have to path correctly if cloned
-            string? date;
-            date = DateTime.Now.ToString("MM/dd/yyyy HH:mm");
             user = null;
 
-
-
+            SqlConnection con = new SqlConnection(@"Data Source=tcp:dhdb01.database.windows.net,1433;Initial Catalog=mut_acct;Persist Security Info=False;User ID=dholbert;Password=Moonpies7*;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+            SqlDataReader? myReader = null;
+            string query = @"INSERT INTO [User] Values (@User_FirstName,@User_LastName,@User_Email)";
+            string query2 = @"Select * from [List_Activities]";
+            string query3 = @"Select * from [User] Where User_Email = @User_Email";
 
             Console.WriteLine(" Are you a new or existing user? 1 - New or  2 - Extisting ");
+
             response = Console.ReadLine();
+
+
+
+            // New Members
             if (response == "1")
             {
                 Console.WriteLine("What is the First name you wish to enter?");
@@ -44,56 +46,55 @@
 
 
                 }
+                
                 if (user != null && email != null && user2 != null)
                 {
-                    if (File.ReadAllText(filePath).Contains(email))
+                    con.Open();
+                    using (SqlCommand cmd = new SqlCommand(query3, con))
                     {
-                        Console.WriteLine("This " + email + " has already have been entered please submit a different email.");
+                        cmd.Parameters.AddWithValue("@User_Email", email);
+                        SqlDataReader reader = cmd.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
+
+
+                        if (reader.HasRows)
+                        {
+                            Console.WriteLine("This " + email + " has already have been entered please submit a different email.");
+
+                        }
+                        else
+                        {
+                            using SqlCommand cmd2 = new SqlCommand(query, con);
+                            {
+                                cmd2.Parameters.AddWithValue("@User_FirstName", user);
+                                cmd2.Parameters.AddWithValue("@User_LastName", user2);
+                                cmd2.Parameters.AddWithValue("@User_Email", email);
+
+                                try
+                                {
+                                    con.Open();
+                                    cmd2.ExecuteNonQuery();
+                                    Console.WriteLine("Records Inserted Successfully");
+                                }
+                                catch (SqlException e)
+                                {
+                                    Console.WriteLine("Error Generated Details:" + e.ToString());
+                                }
+                                finally
+                                {
+                                    con.Close();
+                                    Console.ReadKey();
+                                }
+                            }
+
+                            AddAcctList();
+
+                        }
 
                     }
-                    else
-                    {
-
-                        List<Person> people = new List<Person>();
-
-                        List<string> lines = File.ReadAllLines(filePath).ToList();
-
-                        foreach (var line in lines)
-                        {
-                            string[] entries = line.Split(',');
-
-                            Person newPerson = new Person();
-
-                            newPerson.FirstName = entries[0];
-                            newPerson.LastName = entries[1];
-                            newPerson.Url = entries[2];
-
-                            people.Add(newPerson);
-                        }
-                        Console.WriteLine("Read From text file");
-
-                        foreach (var person in people)
-                        {
-                            Console.WriteLine($"{person.FirstName} {person.LastName}: {person.Url}");
-                        }
-                        people.Add(new Person { FirstName = user, LastName = user2, Url = email });
-
-                        List<string> output = new List<string>();
-
-                        foreach (var person in people)
-                        {
-                            output.Add($"{person.FirstName},{person.LastName},{person.Url}");
-
-                        }
-                        Console.WriteLine("Wring to text file");
-
-                        File.WriteAllLines(filePath, output);
-                        Console.WriteLine("All entries enter");
-
-                        Console.ReadLine();
-                    }
+                    
                 }
             }
+            //Returning Member
             else if (response == "2")
             {
 
@@ -114,6 +115,17 @@
 
                 if (response1 == "1")
                 {
+                    Console.WriteLine("List is the following Activities.");
+                    using SqlCommand cmd3 = new SqlCommand(query2, con);
+                    con.Open();
+                    myReader = cmd3.ExecuteReader();
+                    while (myReader.Read())
+                    {
+                        Console.WriteLine(myReader["DaliyActivites"].ToString());
+
+                    }
+                    con.Close();
+
                     AddAcctList();
 
 
@@ -121,7 +133,7 @@
                 if (response1 == "2")
                 {
 
-                    string[] profile = File.ReadAllLines(filePath2);
+                    
 
 
 
@@ -130,40 +142,18 @@
             }
         }
 
-
-        private static void AddAcctList()
+        // Adding list of Actinitivties to Daily Reocrd
+        public static void AddAcctList()
         {
-            string filePath1 = @"C:\Users\david\source\repos\Mut_Accout\Mut_Accout\Activities.txt"; //will have to path correctly if cloned
-            string filePath2 = @"C:\Users\david\source\repos\Mut_Accout\Mut_Accout\Daily Profiles.txt";
+            SqlConnection con = new SqlConnection(@"Data Source=tcp:dhdb01.database.windows.net,1433;Initial Catalog=mut_acct;Persist Security Info=False;User ID=dholbert;Password=Moonpies7*;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
             string? acct;
             string? acct1;
             string? acct2;
-            string? date;
-            date = DateTime.Now.ToString("MM/dd/yyyy HH:mm");
+            //var local = DateTime.Now;
+            //var utc = local.ToUniversalTime();
 
+            string query4 = @"INSERT INTO [Daily_Entry] Values (@User_Email,@Acitivte_1,@Acitivte_2,@Acitivte_3,GETDATE())";
 
-
-
-
-
-
-            List<Activities> people = new List<Activities>();
-            List<string> lines1 = File.ReadAllLines(filePath1).ToList();
-            foreach (var line in lines1)
-            {
-                string[] entries = line.Split(' ');
-
-                Activities newtask = new Activities();
-
-                newtask.Task = entries[0];
-                people.Add(newtask);
-            }
-            Console.WriteLine("List is the following Activities.");
-            foreach (var person in people)
-            {
-
-                Console.WriteLine(person.Task);
-            }
             Console.WriteLine("Please choose 3 daily Activities. Press Enter after each entry");
             acct = Console.ReadLine();
             acct1 = Console.ReadLine();
@@ -171,50 +161,41 @@
 
             if (acct != null && acct1 != null && acct2 != null && email != null)
             {
-                List<AcctTask> AcTask = new List<AcctTask>();
-
-                List<string> lines = File.ReadAllLines(filePath2).ToList();
-
-                foreach (var line in lines)
+                using SqlCommand cmd3 = new SqlCommand(query4, con);
                 {
-                    string[] entries = line.Split(',');
+                    cmd3.Parameters.AddWithValue("@User_Email", email);
+                    cmd3.Parameters.AddWithValue("@Acitivte_1", acct);
+                    cmd3.Parameters.AddWithValue("@Acitivte_2", acct1);
+                    cmd3.Parameters.AddWithValue("@Acitivte_3", acct2);
+                   
 
-                    AcctTask newAcct = new AcctTask();
 
-                    newAcct.Date = entries[0];
-                    newAcct.Email = entries[1];
-                    newAcct.MutTask = entries[2];
-                    newAcct.MutTask1 = entries[3];
-                    newAcct.MutTask2 = entries[4];
-
-                    AcTask.Add(newAcct);
-                }
-                Console.WriteLine("Read From text file");
-
-                foreach (var task in AcTask)
-                {
-                    Console.WriteLine($"{task.Date}- {task.Email}: {task.MutTask} {task.MutTask1} {task.MutTask2}");
-                }
-                AcTask.Add(new AcctTask { Date = date, Email = email, MutTask = acct, MutTask1 = acct1, MutTask2 = acct2 });
-
-                List<string> output = new List<string>();
-
-                foreach (var task in AcTask)
-                {
-                    output.Add($"{task.Date},{task.Email},{task.MutTask},{task.MutTask1},{task.MutTask2}");
+                    try
+                    {
+                        con.Open();
+                        cmd3.ExecuteNonQuery();
+                        Console.WriteLine("Records Inserted Successfully");
+                    }
+                    catch (SqlException e)
+                    {
+                        Console.WriteLine("Error Generated Details:" + e.ToString());
+                    }
+                    finally
+                    {
+                        con.Close();
+                        Console.ReadKey();
+                    }
 
                 }
-                Console.WriteLine("Writing to text file");
 
-                File.WriteAllLines(filePath2, output);
-                Console.WriteLine("All entries enter");
 
-                Console.ReadLine();
 
             }
 
 
         }
+
+
     }
 }
 
