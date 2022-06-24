@@ -19,9 +19,12 @@ namespace Accountability
             string connstring = System.Configuration.ConfigurationManager.ConnectionStrings["db_connection"].ConnectionString;
             SqlConnection con = new SqlConnection(connstring);
             SqlDataReader? myReader = null;
+            SqlDataReader? myReader2 = null;
+
             string query = @"INSERT INTO [User] Values (@User_FirstName,@User_LastName,@User_Email)";
             string query2 = @"Select * from [List_Activities]";
             string query3 = @"Select * from [User] Where User_Email = @User_Email";
+            string query4 = @"Select * from [Daily_Entry] Where User_Email LIKE '%" +email+ "%' AND CONVERT(DATE,Created_Date)=CONVERT(Date,GETDATE())";
 
             Console.WriteLine(" Are you a new or existing user? 1 - New or  2 - Extisting ");
 
@@ -48,7 +51,7 @@ namespace Accountability
 
 
                 }
-                
+
                 if (user != null && email != null && user2 != null)
                 {
                     con.Open();
@@ -93,7 +96,7 @@ namespace Accountability
                         }
 
                     }
-                    
+
                 }
             }
             //Returning Member
@@ -123,7 +126,8 @@ namespace Accountability
                     myReader = cmd3.ExecuteReader();
                     while (myReader.Read())
                     {
-                        Console.WriteLine(myReader["DaliyActivites"].ToString());
+                        Console.WriteLine(myReader["List_Activities"].ToString());
+
 
                     }
                     con.Close();
@@ -134,8 +138,23 @@ namespace Accountability
                 }
                 if (response1 == "2")
                 {
+                    Console.WriteLine("Here is your Daily Entry for Today.");
+                    using SqlCommand cmd4 = new SqlCommand(query4, con);
+                    con.Open();
+                    myReader2 = cmd4.ExecuteReader();
+                    while (myReader2.Read())
+                    {
+                        for (int i = 0; i < myReader2.FieldCount; i++)
+                        {
+                            Console.WriteLine(myReader2[i] + "    ");
+                        }
+                        Console.WriteLine();
+                    }
+                    con.Close();
 
-                    
+                    Console.WriteLine("Do you want to complete some of you activites");
+
+
 
 
 
@@ -170,7 +189,7 @@ namespace Accountability
                     cmd3.Parameters.AddWithValue("@Acitivte_1", acct);
                     cmd3.Parameters.AddWithValue("@Acitivte_2", acct1);
                     cmd3.Parameters.AddWithValue("@Acitivte_3", acct2);
-                   
+
 
 
                     try

@@ -2,11 +2,13 @@
 
 namespace Accountability
 {
-    public class Person
+    public class Mycard
     {
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string Url { get; set; }
+        public string UserEmail { get; set; }
+        public string Acct1 { get; set; }
+        public string Acct2 { get; set; }
+        public string Acct3 { get; set; }
+        public string GetDate { get; set; }
 
     }
     public class Activities
