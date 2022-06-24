@@ -2683,11 +2683,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\david\\source\\repos\\Mut_Accout\\Mut_Accout\\Mut_Accout.csproj",
+      "projectUniqueName": "C:\\Users\\david\\Source\\Repos\\dcholbert\\Mut_Account\\Mut_Accout\\Mut_Accout.csproj",
       "projectName": "Mut_Accout",
-      "projectPath": "C:\\Users\\david\\source\\repos\\Mut_Accout\\Mut_Accout\\Mut_Accout.csproj",
+      "projectPath": "C:\\Users\\david\\Source\\Repos\\dcholbert\\Mut_Account\\Mut_Accout\\Mut_Accout.csproj",
       "packagesPath": "C:\\Users\\david\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\david\\source\\repos\\Mut_Accout\\Mut_Accout\\obj\\",
+      "outputPath": "C:\\Users\\david\\Source\\Repos\\dcholbert\\Mut_Account\\Mut_Accout\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
