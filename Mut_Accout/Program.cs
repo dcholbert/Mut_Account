@@ -1,4 +1,6 @@
 ﻿using Microsoft.Data.SqlClient;
+using System.Configuration;
+
 
 namespace Accountability
 {
@@ -14,8 +16,8 @@ namespace Accountability
             string? response;
             string? response1;
             user = null;
-
-            SqlConnection con = new SqlConnection(@"Data Source=tcp:dhdb01.database.windows.net,1433;Initial Catalog=mut_acct;Persist Security Info=False;User ID=dholbert;Password=Moonpies7*;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+            string connstring = System.Configuration.ConfigurationManager.ConnectionStrings["db_connection"].ConnectionString;
+            SqlConnection con = new SqlConnection(connstring);
             SqlDataReader? myReader = null;
             string query = @"INSERT INTO [User] Values (@User_FirstName,@User_LastName,@User_Email)";
             string query2 = @"Select * from [List_Activities]";
@@ -145,7 +147,8 @@ namespace Accountability
         // Adding list of Actinitivties to Daily Reocrd
         public static void AddAcctList()
         {
-            SqlConnection con = new SqlConnection(@"Data Source=tcp:dhdb01.database.windows.net,1433;Initial Catalog=mut_acct;Persist Security Info=False;User ID=dholbert;Password=Moonpies7*;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+            string connstring2 = System.Configuration.ConfigurationManager.ConnectionStrings["db_connection"].ConnectionString;
+            SqlConnection con = new SqlConnection(connstring2);
             string? acct;
             string? acct1;
             string? acct2;
