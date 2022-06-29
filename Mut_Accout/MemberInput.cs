@@ -78,9 +78,12 @@ namespace Mut_Accout
 
                     if (reader.HasRows)
                     {
+                        
                         Console.WriteLine("This " + email + " has already have been entered please submit a different email.");
-                        Console.WriteLine("Please Enter new Email");
+                        Console.WriteLine("Please Enter new Email.");
                         email = Console.ReadLine();
+                       
+
 
                     }
                     break;
@@ -113,6 +116,10 @@ namespace Mut_Accout
             }
 
             AcctList.NewAcct();
+            Console.WriteLine("Push enter to return to Main Menu.");
+            Console.ReadLine();
+            Startup.Run();
+
 
         }
         public static void ReturnMember()
@@ -138,13 +145,21 @@ namespace Mut_Accout
             Console.WriteLine("Welcome Back! Please enter your email name.");
             email = Console.ReadLine();
 
-            if (string.IsNullOrEmpty(email))
+            do
             {
+                if (string.IsNullOrEmpty(email))
+                {
 
-                Console.WriteLine("User cannot be blank");
+                    Console.WriteLine("Please enter an Eamil.");
+                    email = Console.ReadLine();
 
 
-            }
+
+                }
+                Console.WriteLine("Email cannot be blank\n");
+
+            } while (string.IsNullOrEmpty(email));
+            Console.Clear();
 
             Console.WriteLine("Will this be a new daily entry? 1 - Yes or 2 - No");
             response1 = Console.ReadLine();
@@ -163,6 +178,9 @@ namespace Mut_Accout
                 //}
                 //con.Close();
                 AcctList.NewAcct();
+                Console.WriteLine("Push enter to return to Main Menu.");
+                Console.ReadLine();
+                Startup.Run();
 
             }
 
