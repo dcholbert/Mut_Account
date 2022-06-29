@@ -1,0 +1,34 @@
+{
+  "dependencies": {
+    "appConfig1": {
+      "restored": true,
+      "restoreTime": "2022-06-29T01:09:59.4672622Z"
+    },
+    "secrets1": {
+      "restored": true,
+      "restoreTime": "2022-06-29T01:09:26.3702681Z"
+    }
+  },
+  "parameters": {
+    "appConfig1.subscriptionId": {
+      "Name": "appConfig1.subscriptionId",
+      "Type": "subscription",
+      "Value": "89ffb896-f9f6-4fd0-b349-ed21d0a45d92"
+    },
+    "subscriptionId": {
+      "Name": "subscriptionId",
+      "Type": "subscription",
+      "Value": "89ffb896-f9f6-4fd0-b349-ed21d0a45d92"
+    },
+    "appConfig1.resourceGroupLocation": {
+      "Name": "appConfig1.resourceGroupLocation",
+      "Type": "location",
+      "Value": "eastus"
+    },
+    "appConfig1.resourceGroupName": {
+      "Name": "appConfig1.resourceGroupName",
+      "Type": "resourceGroup",
+      "Value": "admin"
+    }
+  }
+}

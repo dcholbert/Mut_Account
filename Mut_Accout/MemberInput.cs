@@ -126,6 +126,7 @@ namespace Mut_Accout
             string connstring = System.Configuration.ConfigurationManager.ConnectionStrings["db_connection"].ConnectionString;
             SqlConnection con = new SqlConnection(connstring);
             SqlDataReader? myReader = null;
+            SqlDataReader? myReader2 = null;
 
 
 
@@ -145,7 +146,7 @@ namespace Mut_Accout
 
             }
 
-            Console.WriteLine(" Will this be a new daily entry? 1 - Yes or 2 - No");
+            Console.WriteLine("Will this be a new daily entry? 1 - Yes or 2 - No");
             response1 = Console.ReadLine();
 
             if (response1 == "1")
@@ -161,16 +162,38 @@ namespace Mut_Accout
 
                 }
                 con.Close();
-            }
-            AcctList.NewAcct();
+                AcctList.NewAcct();
 
+            }
+
+
+            else if (response1 == "2")
+            {
+                Console.WriteLine("Here is your Daily Entry for Today.");
+                using SqlCommand cmd4 = new SqlCommand(query4, con);
+                con.Open();
+                myReader2 = cmd4.ExecuteReader();
+                while (myReader2.Read())
+                {
+                    for (int i = 0; i < myReader2.FieldCount; i++)
+                    {
+                        Console.WriteLine(myReader2[i] + "    ");
+                    }
+                    Console.WriteLine();
+                }
+                con.Close();
+
+                Console.WriteLine("Do you want to complete some of you activites");
+
+
+
+
+
+            }
 
 
 
         }
-
-
-
     }
 
 }
