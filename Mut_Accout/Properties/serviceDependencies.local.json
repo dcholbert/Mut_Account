@@ -8,6 +8,12 @@
       "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.AppConfiguration/configurationStores/mutacct",
       "type": "appConfig.azure",
       "connectionId": "AppConfig"
+    },
+    "mssql1": {
+      "secretStore": "LocalSecretsFile",
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/dhdb01/databases/mut_acct",
+      "type": "mssql.azure",
+      "connectionId": "ConnectionStrings:con"
     }
   }
 }

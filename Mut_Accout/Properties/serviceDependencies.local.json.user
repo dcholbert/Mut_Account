@@ -4,16 +4,30 @@
       "restored": true,
       "restoreTime": "2022-06-29T01:09:59.4672622Z"
     },
+    "mssql1": {
+      "restored": true,
+      "restoreTime": "2022-06-29T01:45:56.7498257Z"
+    },
     "secrets1": {
       "restored": true,
       "restoreTime": "2022-06-29T01:09:26.3702681Z"
     }
   },
   "parameters": {
+    "mssql1.subscriptionId": {
+      "Name": "mssql1.subscriptionId",
+      "Type": "subscription",
+      "Value": "89ffb896-f9f6-4fd0-b349-ed21d0a45d92"
+    },
     "appConfig1.subscriptionId": {
       "Name": "appConfig1.subscriptionId",
       "Type": "subscription",
       "Value": "89ffb896-f9f6-4fd0-b349-ed21d0a45d92"
+    },
+    "mssql1.resourceGroupName": {
+      "Name": "mssql1.resourceGroupName",
+      "Type": "resourceGroup",
+      "Value": "Admin"
     },
     "subscriptionId": {
       "Name": "subscriptionId",

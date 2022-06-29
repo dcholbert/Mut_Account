@@ -151,17 +151,17 @@ namespace Mut_Accout
 
             if (response1 == "1")
             {
-                Console.WriteLine("\nList is the following Activities.");
-                using SqlCommand cmd3 = new SqlCommand(query2, con);
-                con.Open();
-                myReader = cmd3.ExecuteReader();
-                while (myReader.Read())
-                {
-                    Console.WriteLine(myReader["DaliyActivites"].ToString());
+                //Console.WriteLine("\nList is the following Activities.");
+                //using SqlCommand cmd3 = new SqlCommand(query2, con);
+                //con.Open();
+                //myReader = cmd3.ExecuteReader();
+                //while (myReader.Read())
+                //{
+                //    Console.WriteLine(myReader["DaliyActivites"].ToString());
 
 
-                }
-                con.Close();
+                //}
+                //con.Close();
                 AcctList.NewAcct();
 
             }

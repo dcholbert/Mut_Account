@@ -6,6 +6,10 @@
     "appConfig1": {
       "type": "appConfig",
       "connectionId": "AppConfig"
+    },
+    "mssql1": {
+      "type": "mssql",
+      "connectionId": "ConnectionStrings:con"
     }
   }
 }
