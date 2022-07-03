@@ -13,12 +13,12 @@ namespace Mut_Accout
 
             string? response;
             Console.Clear();
-            Console.WriteLine("Are you a New or Returning memeber?");
+            Console.WriteLine("Are you a New or Returning Member?");
             Console.WriteLine("1) New Member");
             Console.WriteLine("2) Returning Member");
-            Console.WriteLine("3) Record of Goals");
+            Console.WriteLine("3) Daliy Precentage");
             Console.WriteLine("4) Exit");
-            Console.WriteLine("Please select the following:");
+            Console.Write("Please select the following:");
             response = Console.ReadLine();
             Console.Clear();
 
@@ -36,9 +36,10 @@ namespace Mut_Accout
                 MemberInput.ReturnMember();
 
             }
+            // Daily Goal Precentage
             else if (response == "3")
             {
-                //Add the Daily Goal Precentage
+                EntryMath.DaliyMath();
             }
             else if (response == "4")
             {

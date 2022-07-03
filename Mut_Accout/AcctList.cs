@@ -15,7 +15,7 @@ namespace Mut_Accout1
             string? acct2;
             SqlDataReader? myReader = null;
 
-            string query4 = @"INSERT INTO [Daily_Entry] Values (@User_Email,@Acitivte_1,@Acitivte_2,@Acitivte_3,GETDATE())";
+            string query4 = @"INSERT INTO [Daily_Entry] (User_Email,Activite_1,Activite_2,Activite_3,Created_Date)  Values (@User_Email,@Acitivte_1,@Acitivte_2,@Acitivte_3,@Created_Date)";
             string query2 = @"Select * from [List_Activities]";
 
             Console.WriteLine("\nList is the following Activities.");
@@ -43,6 +43,7 @@ namespace Mut_Accout1
                 cmd4.Parameters.AddWithValue("@Acitivte_1", acct);
                 cmd4.Parameters.AddWithValue("@Acitivte_2", acct1);
                 cmd4.Parameters.AddWithValue("@Acitivte_3", acct2);
+                cmd4.Parameters.AddWithValue("@Created_Date", DateTime.UtcNow);
 
 
 
