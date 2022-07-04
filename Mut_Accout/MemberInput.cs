@@ -131,7 +131,7 @@ namespace Mut_Accout
         }
         public static void ReturnMember()
         {
-            //Is for Returning Members to enter new or view existing events
+            // Returning Members to enter new or view existing events
 
             string? response1;
             string? response3;

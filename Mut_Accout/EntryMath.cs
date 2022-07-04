@@ -56,6 +56,7 @@ namespace Mut_Accout
                 Console.Write("Here is you Daliy Precentage:\t");
                 Console.WriteLine(Math.Round((percentage/3)*100,2)+"%\n");
             }
+            //Add Submit to new database for future records
             catch (SqlException e)
             {
                 Console.WriteLine("Error Generated Details:" + e.ToString());
