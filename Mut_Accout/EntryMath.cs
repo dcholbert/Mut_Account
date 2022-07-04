@@ -9,7 +9,7 @@ namespace Mut_Accout
     {
         public static void DaliyMath()
         {
-            double precentage = 0;
+            double percentage = 0;
 
             string? email1 = Mut_Accout.MemberInput.email;
             DataTable dt = new DataTable();
@@ -17,8 +17,12 @@ namespace Mut_Accout
             SqlConnection con = new SqlConnection(connstring2);
 
             string query6 = @"Select SUM(Entry1+Entry2+Entry3) As percentage From [Daily_Entry] Where User_Email LIKE '%" + email1 + "%' AND CONVERT(DATE,Created_Date)=CONVERT(Date,GETDATE())";
-
-            Console.WriteLine("Welcome Back! Please enter your Email.");
+            Console.Clear();
+            Logo.DataLogo();
+            Console.ResetColor();
+            Console.WriteLine();
+            Console.WriteLine("Welcome Back!");
+            Console.Write("Please enter Email: ");
             email1 = Console.ReadLine();
 
             do
@@ -26,7 +30,7 @@ namespace Mut_Accout
                 if (string.IsNullOrEmpty(email1))
                 {
 
-                    Console.WriteLine("Please enter an Eamil.");
+                    Console.Write("Please enter an Eamil: ");
                     email1 = Console.ReadLine();
 
 
@@ -46,11 +50,11 @@ namespace Mut_Accout
                 while (dr.Read())
                 {
 
-                    precentage = (double)Convert.ToDecimal(dr[0]);
+                    percentage = (double)Convert.ToDecimal(dr[0]);
                 }
-                Console.WriteLine("You are " + precentage + " out of 3 for the day.\n"); 
+                Console.WriteLine("You are " + percentage + " out of 3 for the day.\n"); 
                 Console.Write("Here is you Daliy Precentage:\t");
-                Console.WriteLine(Math.Round((precentage/3)*100,2)+"%\n");
+                Console.WriteLine(Math.Round((percentage/3)*100,2)+"%\n");
             }
             catch (SqlException e)
             {

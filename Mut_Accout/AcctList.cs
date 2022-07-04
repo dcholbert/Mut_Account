@@ -1,4 +1,5 @@
 ﻿using Microsoft.Data.SqlClient;
+using Mut_Accout;
 
 namespace Mut_Accout1
 {
@@ -18,7 +19,12 @@ namespace Mut_Accout1
             string query4 = @"INSERT INTO [Daily_Entry] (User_Email,Activite_1,Activite_2,Activite_3,Created_Date)  Values (@User_Email,@Acitivte_1,@Acitivte_2,@Acitivte_3,@Created_Date)";
             string query2 = @"Select * from [List_Activities]";
 
-            Console.WriteLine("\nList is the following Activities.");
+            Console.Clear();
+            Logo.AcctLogo();
+            Console.ResetColor();
+            Console.WriteLine();
+
+            Console.WriteLine("List is the following Activities.");
             using SqlCommand cmd3 = new SqlCommand(query2, con);
             con.Open();
             myReader = cmd3.ExecuteReader();

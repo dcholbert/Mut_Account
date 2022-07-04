@@ -19,7 +19,7 @@ namespace Mut_Accout2
 
             foreach (DataTable dt in ds.Tables)
             {
-                Console.WriteLine("User Details Are Following:");
+                Console.WriteLine("User Event Details Are Following:");
                 for (int curCol = 0; curCol < dt.Columns.Count; curCol++)
                 {
 
