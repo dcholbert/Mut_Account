@@ -40,8 +40,10 @@ namespace Mut_Accout
 
             } while (string.IsNullOrEmpty(email1));
             Console.Clear();
+            Logo.DataLogo();
+            Console.ResetColor();
+            Console.WriteLine();
 
-           
             con.Open();
             using SqlCommand cmd = new SqlCommand(query6, con);
             SqlDataReader dr = cmd.ExecuteReader();

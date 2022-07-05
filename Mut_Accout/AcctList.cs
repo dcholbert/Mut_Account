@@ -37,8 +37,11 @@ namespace Mut_Accout1
             con.Close();
 
             Console.WriteLine("\nPlease choose 3 daily Activities. Press Enter after each entry");
+            Console.Write("Entry 1): ");
             acct = Console.ReadLine();
+            Console.Write("Entry 2): ");
             acct1 = Console.ReadLine();
+            Console.Write("Entry 3): ");
             acct2 = Console.ReadLine();
 
 
