@@ -54,11 +54,11 @@ namespace Mut_Accout
 
                     percentage = (double)Convert.ToDecimal(dr[0]);
                 }
-                Console.WriteLine("You are " + percentage + " out of 3 for the day.\n"); 
+                Console.WriteLine("You are " + percentage + " out of 3 for the day.\n");
                 Console.Write("Here is you Daliy Precentage:\t");
-                Console.WriteLine(Math.Round((percentage/3)*100,2)+"%\n");
+                Console.WriteLine(Math.Round((percentage / 3) * 100, 2) + "%\n"); //Add Submit to new database for future records
             }
-            //Add Submit to new database for future records
+           
             catch (SqlException e)
             {
                 Console.WriteLine("Error Generated Details:" + e.ToString());
@@ -70,9 +70,9 @@ namespace Mut_Accout
                 Console.ReadLine();
                 Startup.Run();
             }
-            
-            
-           
+
+
+
 
         }
     }

@@ -160,7 +160,7 @@ namespace Mut_Accout
             Console.WriteLine("Welcome Back!");
             Console.Write("Please enter Email: ");
             email = Console.ReadLine();
-
+            
             do
             {
                 if (string.IsNullOrEmpty(email))
@@ -235,7 +235,7 @@ namespace Mut_Accout
                         Console.Clear();
                         ListDataTable.Dtable();
 
-                        Console.WriteLine("Please put (1) to complete and (0) or Blank for not Completed.\n");
+                        Console.WriteLine("Please put (1) to Complete and (0) Not Completed.\n");
 
 
 
