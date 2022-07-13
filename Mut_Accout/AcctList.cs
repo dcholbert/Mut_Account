@@ -8,7 +8,7 @@ namespace Mut_Accout1
         //Adding Activities to Database
         public static void NewAcct()
         {
-            string? email1 = Mut_Accout.MemberInput.email;
+            string? email1 = Mut_Accout.MemberInput.Email;
             string connstring2 = System.Configuration.ConfigurationManager.ConnectionStrings["db_connection"].ConnectionString;
             SqlConnection con = new SqlConnection(connstring2);
             string? acct;

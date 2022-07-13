@@ -1,16 +1,17 @@
 ﻿using Microsoft.Data.SqlClient;
 using Mut_Accout1;
 using Mut_Accout2;
+using System.Text.RegularExpressions;
 
 namespace Mut_Accout
 {
     internal class MemberInput
     {
-        public static string? email { get; set; }
+        public static string? Email { get; set; }
         public static void NewMenber()
         {
             //Added new members to the app
-
+            string? email = Email;  
             string? user;
             string? user2;
             user = null;
@@ -20,7 +21,7 @@ namespace Mut_Accout
 
             string query = @"INSERT INTO [User] Values (@User_FirstName,@User_LastName,@User_Email)";
             string query3 = @"Select * from [User] Where User_Email = @User_Email";
-            string query4 = @"Select * from [Daily_Entry] Where User_Email LIKE '%" + email + "%' AND CONVERT(DATE,Created_Date)=CONVERT(Date,GETDATE())";
+            string query4 = @"Select * from [Daily_Entry] Where User_Email LIKE '%" + Email + "%' AND CONVERT(DATE,Created_Date)=CONVERT(Date,GETDATE())";
 
             Logo.NewLogo();
             Console.ResetColor();
@@ -58,26 +59,15 @@ namespace Mut_Accout
             } while (string.IsNullOrEmpty(user2));
 
             //Email
-            do
-            {
-                if (string.IsNullOrEmpty(email))
-                {
+            Console.Write("Eamil: ");
+            EmailValid.ValidateEmail();
 
-                    Console.Write("Eamil: ");
-                    email = Console.ReadLine();
-
-
-
-                }
-                else
-                    Console.WriteLine("User cannot be blank\n");
-            } while (string.IsNullOrEmpty(email));
 
 
             con.Open();
             using (SqlCommand cmd = new SqlCommand(query3, con))
             {
-                cmd.Parameters.AddWithValue("@User_Email", email);
+                cmd.Parameters.AddWithValue("@User_Email", Email);
                 SqlDataReader reader = cmd.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
 
                 do
@@ -86,7 +76,7 @@ namespace Mut_Accout
                     if (reader.HasRows)
                     {
 
-                        Console.WriteLine("This " + email + " has already have been entered please submit a different email.");
+                        Console.WriteLine("This " + Email + " has already have been entered please submit a different email.");
                         Console.WriteLine("Please Enter new Email.");
                         email = Console.ReadLine();
 
@@ -103,7 +93,7 @@ namespace Mut_Accout
             {
                 cmd2.Parameters.AddWithValue("@User_FirstName", user);
                 cmd2.Parameters.AddWithValue("@User_LastName", user2);
-                cmd2.Parameters.AddWithValue("@User_Email", email);
+                cmd2.Parameters.AddWithValue("@User_Email", Email);
 
                 try
                 {
@@ -151,40 +141,32 @@ namespace Mut_Accout
 
 
 
-            string query4 = @"Select * from [Daily_Entry] Where User_Email LIKE '%" + email + "%' AND CONVERT(DATE,Created_Date)=CONVERT(Date,GETDATE())";
-            string query5 = @"UPDATE [Daily_Entry] SET Entry1 = @Entry1, Entry2 = @Entry2, Entry3 = @Entry3 Where User_Email LIKE '%" + email + "%' AND CONVERT(DATE,Created_Date)=CONVERT(Date,GETDATE())";
-
-            Logo.ReturnLogo();
-            Console.ResetColor();
-            Console.WriteLine();
-            Console.WriteLine("Welcome Back!");
-            Console.Write("Please enter Email: ");
-            email = Console.ReadLine();
-            
-            do
-            {
-                if (string.IsNullOrEmpty(email))
-                {
-
-                    Console.WriteLine("Please enter an Eamil.");
-                    email = Console.ReadLine();
+            string query4 = @"Select * from [Daily_Entry] Where User_Email LIKE '%" + Email + "%' AND CONVERT(DATE,Created_Date)=CONVERT(Date,GETDATE())";
+            string query5 = @"UPDATE [Daily_Entry] SET Entry1 = @Entry1, Entry2 = @Entry2, Entry3 = @Entry3 Where User_Email LIKE '%" + Email + "%' AND CONVERT(DATE,Created_Date)=CONVERT(Date,GETDATE())";
 
 
-
-                }
-                Console.WriteLine("Email cannot be blank\n");
-
-            } while (string.IsNullOrEmpty(email));
             Console.Clear();
+            if (Email == null)
+            {
+                Logo.ReturnLogo();
+                Console.ResetColor();
+                Console.WriteLine();
+                Console.Write("Please enter Email: ");
+                EmailValid.ValidateEmail();
+                Console.Clear();
+            }
 
+            Console.Clear();
             Logo.ReturnLogo();
             Console.ResetColor();
             Console.WriteLine();
+            Console.Write("Welcome Back!\t");
+            Console.WriteLine(Email); //Add User First and Last instead of email
 
-            Console.WriteLine("Daily Entry:");
-            Console.WriteLine("1) New Daily Entry");
-            Console.WriteLine("2) Returning Entry\n");
-            Console.Write("Enter your selection here:");
+            Console.WriteLine("\nDaily Entry:");
+            Console.WriteLine("1) New Daily Entries");
+            Console.WriteLine("2) Complete Entries\n");
+            Console.Write("Enter your selection here: ");
             response1 = Console.ReadLine();
 
             if (response1 == "1")
@@ -208,20 +190,23 @@ namespace Mut_Accout
                 Console.WriteLine("Do you want to view activites:");
                 Console.WriteLine("1) To continue");
                 Console.WriteLine("2) Return to Main Menu\n");
-                Console.Write("Enter your selection here:");
+                Console.Write("Enter your selection here: ");
                 response3 = Console.ReadLine();
                 if (response3 == "2")
                 {
                     Startup.Run();
                 }
-                else if (response3 == "1")
+                else if (response3 == "1")//Add loop for inputs
                 {
+                    Console.Clear();
+                    Logo.ReturnLogo();
+                    Console.ResetColor();
                     Console.WriteLine("Here is your Daily Entry for Today.");
                     ListDataTable.Dtable();
                     Console.WriteLine("Do you still want to Continue?");
                     Console.WriteLine("1) Continue");
                     Console.WriteLine("2) Return to Main Menu.");
-                    Console.Write("Select from Above:");
+                    Console.Write("Select from Above: ");
                     response4 = Console.ReadLine();
                     if (response4 == "2")
                     {
@@ -240,11 +225,11 @@ namespace Mut_Accout
 
 
                         //Add Loop so only inputs are correct
-                        Console.Write("Entry 1):");
+                        Console.Write("Activity 1): ");
                         entry1 = Console.ReadLine();
-                        Console.Write("Entry 2):");
+                        Console.Write("Activity 2): ");
                         entry2 = Console.ReadLine();
-                        Console.Write("Entry 3):");
+                        Console.Write("Activity 3): ");
                         entry3 = Console.ReadLine();
                         using SqlCommand cmd5 = new SqlCommand(query5, con);
                         {
@@ -274,8 +259,10 @@ namespace Mut_Accout
                         }
                     }
                 }
+
             }
         }
+
     }
 
 }

@@ -11,7 +11,7 @@ namespace Mut_Accout
         {
             double percentage = 0;
 
-            string? email1 = Mut_Accout.MemberInput.email;
+            string email1 = Mut_Accout.MemberInput.Email;
             DataTable dt = new DataTable();
             string connstring2 = System.Configuration.ConfigurationManager.ConnectionStrings["db_connection"].ConnectionString;
             SqlConnection con = new SqlConnection(connstring2);
@@ -22,27 +22,17 @@ namespace Mut_Accout
             Console.ResetColor();
             Console.WriteLine();
             Console.WriteLine("Welcome Back!");
-            Console.Write("Please enter Email: ");
-            email1 = Console.ReadLine();
-
-            do
+            if (email1 == null)
             {
-                if (string.IsNullOrEmpty(email1))
-                {
-
-                    Console.Write("Please enter an Eamil: ");
-                    email1 = Console.ReadLine();
-
-
-
-                }
-                Console.WriteLine("Email cannot be blank\n");
-
-            } while (string.IsNullOrEmpty(email1));
+                Console.Write("Please enter Email: ");
+                EmailValid.ValidateEmail();
+            }
             Console.Clear();
             Logo.DataLogo();
             Console.ResetColor();
             Console.WriteLine();
+            Console.Write("Welcome Back!\t");
+            Console.WriteLine(Mut_Accout.MemberInput.Email); //Add User First and Last instead of email
 
             con.Open();
             using SqlCommand cmd = new SqlCommand(query6, con);
@@ -58,10 +48,12 @@ namespace Mut_Accout
                 Console.Write("Here is you Daliy Precentage:\t");
                 Console.WriteLine(Math.Round((percentage / 3) * 100, 2) + "%\n"); //Add Submit to new database for future records
             }
-           
-            catch (SqlException e)
+
+            catch (Exception e)
             {
-                Console.WriteLine("Error Generated Details:" + e.ToString());
+                //Console.WriteLine("Error Generated Details:" + e.ToString());
+                
+                Console.WriteLine("There is no Entries Added to Calculate");
             }
             finally
             {

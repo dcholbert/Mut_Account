@@ -1,0 +1,16 @@
+Main Menu:
+	New Members - If the user is New to the program.
+	Returning Members - For Returning Members to either add new Daily Activities or Complete the Activities Entered.
+	Daily Percentage - This shows the completion of your Daily Activities.
+
+New Members:
+	First Name - First Name of the New User. 
+	Last Name - Last Name of the New User.
+	Email - Email of the New User.
+
+Returning Members:
+	New Daily Entries - This allows to enter 3 New Entries from the Activity List.
+	Complete Entries  - This allows to Complete the Acitivties that have been enter for the day.
+
+Daily Percentage:
+	Will show the how many activities completed and the percentage of the completed activies for teh day.

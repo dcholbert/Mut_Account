@@ -8,7 +8,7 @@ namespace Mut_Accout2
         public static void Dtable()
         {
 
-            string? email1 = Mut_Accout.MemberInput.email;
+            string? email1 = Mut_Accout.MemberInput.Email;
             string connstring = System.Configuration.ConfigurationManager.ConnectionStrings["db_connection"].ConnectionString;
             SqlConnection con = new SqlConnection(connstring);
             con.Open();

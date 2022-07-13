@@ -12,7 +12,7 @@
             Console.WriteLine("Main Menu:\n");
             Console.WriteLine("1) New Member");
             Console.WriteLine("2) Returning Member");
-            Console.WriteLine("3) Daily Precentage");
+            Console.WriteLine("3) Daily Percentage");
             Console.WriteLine("4) Info");
             Console.WriteLine("5) Exit\n");
             Console.Write("Where do you want to go?:");
@@ -36,7 +36,7 @@
             }
             else if (response == "4")
             {
-                //Add info selection
+                Info.GetInfo();
             }
             else if (response == "5")
             {//Add exit
