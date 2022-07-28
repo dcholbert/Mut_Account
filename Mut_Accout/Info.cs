@@ -20,7 +20,7 @@ namespace Mut_Accout
                     Console.WriteLine(line);
                 }
             }
-            Console.WriteLine("Push enter to return to Main Menu.");
+            Console.WriteLine("\nPush enter to return to Main Menu.");
             Console.ReadLine();
             Startup.Run();
 
