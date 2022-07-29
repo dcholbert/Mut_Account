@@ -28,7 +28,7 @@ The Features that are in this project are the following:
 
 A Master Loop - If an option from the Main Menu is used, after that the selection is completed of the program it will send you back to the Main Menu.
 
-Reading from a .txt- There is a on information.txt in the Bin Release/Debug net6.0 that gives the information show above to the user and is pulled in the Info.cs.
+Reading from a .txt- There is a on information.txt in the Bin Release/Debug net6.0 that gives the information show above to the user and is pulled in the Info.cs. Also there is an APP.config file that is being read for the connection string used in the connection of the database.
 
 The use of regex - This is use in EmailValid.cs to insure that an email address is entered is a vaild email.
 
