@@ -33,13 +33,13 @@ Reading from a .txt- There is a on information.txt in the Bin Release/Debug net6
 The use of regex - This is use in EmailValid.cs to insure that an email address is entered is a vaild email.
 
 Connecting to a Database Read and Write - This whole project is to store the information that is enter from diferent users using it. The Database is an Azure SQL with three different tables (Daily_Entry, List_Activities, User) that play a role in different parts of the project.      
-    1)Stores new users that are starting out shown in MemberInput.cs NewMember(). This will also validate that if the email is an email or if it has already been entered. 
-    2)Returning users can just enter the eamil that has been enter from them shown in MemberIput.cs ReturnMember().
-    3)Pull a list of activities that is stored on database to be enter as daily events by the user shown in Acctlist.cs NewAcct().
-    4)Able to let the user input the activities shown in Acctlist.cs NewAcct()
-    5)Able for a user to pull the entrys that use enter and display them shown in ListDataTable.cs Dtable().
-    6)Gives the options if the user is wanting to continue to enter if the completion of the selected Activity shown in Memberinput.cs near the botttom of the code.
-    7)After the entering of Completion is finish the user is able to go back and see the score and percentage of the day shown in EntryMath.cs
+  - 1)Stores new users that are starting out shown in MemberInput.cs NewMember(). This will also validate that if the email is an email or if it has already been entered. 
+  -  2)Returning users can just enter the eamil that has been enter from them shown in MemberIput.cs ReturnMember().
+  - 3)Pull a list of activities that is stored on database to be enter as daily events by the user shown in Acctlist.cs NewAcct().
+  - 4)Able to let the user input the activities shown in Acctlist.cs NewAcct()
+  - 5)Able for a user to pull the entrys that use enter and display them shown in ListDataTable.cs Dtable().
+  - 6)Gives the options if the user is wanting to continue to enter if the completion of the selected Activity shown in Memberinput.cs near the botttom of the code.
+  - 7)After the entering of Completion is finish the user is able to go back and see the score and percentage of the day shown in EntryMath.cs
 
 
 
