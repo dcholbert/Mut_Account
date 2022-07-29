@@ -4,7 +4,7 @@ using System.Data;
 namespace Mut_Accout2
 {
     internal class ListDataTable
-    {
+    {   // Gets the daily entry from the user for today. And show it as a table.
         public static void Dtable()
         {
 

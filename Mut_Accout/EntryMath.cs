@@ -52,7 +52,7 @@ namespace Mut_Accout
             catch (Exception e)
             {
                 //Console.WriteLine("Error Generated Details:" + e.ToString());
-                
+
                 Console.WriteLine("There is no Entries Added to Calculate");
             }
             finally

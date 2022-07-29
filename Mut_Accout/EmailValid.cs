@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Text.RegularExpressions;
+﻿using System.Text.RegularExpressions;
 
 
 namespace Mut_Accout
 {
     internal class EmailValid
-    {
+    {    //Validates an email address
         public static void ValidateEmail()
         {
             Mut_Accout.MemberInput.Email = Console.ReadLine();
@@ -20,14 +15,14 @@ namespace Mut_Accout
             {
                 Console.WriteLine(email + " is Valid Email Address");
                 return;
-                
+
             }
-            
+
             else
                 Console.WriteLine(email + " is Invalid Email Address");
             ValidateEmail();
         }
 
-       
+
     }
 }

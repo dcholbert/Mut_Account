@@ -24,6 +24,7 @@ namespace Mut_Accout1
             Console.ResetColor();
             Console.WriteLine();
 
+            //Shows List of Activities from database
             Console.WriteLine("List is the following Activities.");
             using SqlCommand cmd3 = new SqlCommand(query2, con);
             con.Open();
@@ -36,6 +37,7 @@ namespace Mut_Accout1
             }
             con.Close();
 
+            //Input of the 3 Activities and add them to the database
             Console.WriteLine("\nPlease choose 3 daily Activities. Press Enter after each entry");
             Console.Write("Entry 1): ");
             acct = Console.ReadLine();

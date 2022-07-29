@@ -1,21 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.IO;
-
-namespace Mut_Accout
+﻿namespace Mut_Accout
 {
     internal class Info
-    { 
+    {
         public static void GetInfo()
-        {
-            
+        {//reads information.txt file
+
             using (StreamReader sr = new StreamReader(Path.Combine(Environment.CurrentDirectory, "infromation.txt")))
             {
                 string line;
-                while((line = sr.ReadLine()) != null)
+                while ((line = sr.ReadLine()) != null)
                 {
                     Console.WriteLine(line);
                 }
@@ -26,5 +19,5 @@ namespace Mut_Accout
 
         }
     }
-    
+
 }

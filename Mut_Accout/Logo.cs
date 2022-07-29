@@ -1,6 +1,6 @@
 ﻿
 namespace Mut_Accout
- 
+
 {
     internal class Logo
     {
@@ -16,11 +16,11 @@ ______         _  _           ___         _    _         _  _    _
 |___/   \__,_||_||_| \__, | \_| |_/ \___| \__||_|  \_/  |_| \__||_| \___||___/
                       __/ |                                                   
                      |___/ ";
-            Console.WriteLine(mlogo,Console.ForegroundColor);
+            Console.WriteLine(mlogo, Console.ForegroundColor);
         }
         public static void NewLogo()
         {
-            Console.ForegroundColor= ConsoleColor.Red;
+            Console.ForegroundColor = ConsoleColor.Red;
             string nlogo = @"
  _   _                  ___  ___                  _                 
 | \ | |                 |  \/  |                 | |                
@@ -28,7 +28,7 @@ ______         _  _           ___         _    _         _  _    _
 | . ` | / _ \\ \ /\ / / | |\/| | / _ \| '_ ` _ \ | '_ \  / _ \| '__|
 | |\  ||  __/ \ V  V /  | |  | ||  __/| | | | | || |_) ||  __/| |   
 \_| \_/ \___|  \_/\_/   \_|  |_/ \___||_| |_| |_||_.__/  \___||_| ";
-            Console.WriteLine(nlogo,Console.ForegroundColor);
+            Console.WriteLine(nlogo, Console.ForegroundColor);
         }
         public static void AcctLogo()
         {
@@ -42,11 +42,11 @@ ______         _  _           ___         _    _         _  _    _
 \_| |_/ \___| \__||_|  \_/  |_| \__||_| \___||___/        \_____/|_||___/ \__|
                                                    ______                     
                                                   |______| ";
-            Console.WriteLine(alogo,Console.ForegroundColor);   
+            Console.WriteLine(alogo, Console.ForegroundColor);
         }
         public static void ReturnLogo()
         {
-            Console.ForegroundColor=ConsoleColor.Green;
+            Console.ForegroundColor = ConsoleColor.Green;
             string rlogo = @"
 ______        _                        _                ___  ___                  _                 
 | ___ \      | |                      (_)               |  \/  |                 | |                
@@ -56,7 +56,7 @@ ______        _                        _                ___  ___                
 \_| \_| \___| \__| \__,_||_|   |_| |_||_||_| |_| \__, | \_|  |_/ \___||_| |_| |_||_.__/  \___||_|   
                                                   __/ |                                             
                                                  |___/  ";
-            Console.WriteLine(rlogo,Console.ForegroundColor);
+            Console.WriteLine(rlogo, Console.ForegroundColor);
 
         }
         public static void DataLogo()
@@ -73,7 +73,7 @@ ______         _  _        ______                                 _
                       __/ |                                                    __/ |      
                      |___/                                                    |___/       
  ";
-            Console.WriteLine(dlogo,Console.ForegroundColor);
+            Console.WriteLine(dlogo, Console.ForegroundColor);
         }
     }
 }

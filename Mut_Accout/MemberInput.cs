@@ -1,7 +1,6 @@
 ﻿using Microsoft.Data.SqlClient;
 using Mut_Accout1;
 using Mut_Accout2;
-using System.Text.RegularExpressions;
 
 namespace Mut_Accout
 {
@@ -11,7 +10,7 @@ namespace Mut_Accout
         public static void NewMenber()
         {
             //Added new members to the app
-            string? email = Email;  
+            string? email = Email;
             string? user;
             string? user2;
             user = null;
@@ -136,12 +135,6 @@ namespace Mut_Accout
             string connstring = System.Configuration.ConfigurationManager.ConnectionStrings["db_connection"].ConnectionString;
             SqlConnection con = new SqlConnection(connstring);
 
-
-
-
-
-
-            string query4 = @"Select * from [Daily_Entry] Where User_Email LIKE '%" + Email + "%' AND CONVERT(DATE,Created_Date)=CONVERT(Date,GETDATE())";
             string query5 = @"UPDATE [Daily_Entry] SET Entry1 = @Entry1, Entry2 = @Entry2, Entry3 = @Entry3 Where User_Email LIKE '%" + Email + "%' AND CONVERT(DATE,Created_Date)=CONVERT(Date,GETDATE())";
 
 
@@ -223,7 +216,7 @@ namespace Mut_Accout
                         Console.WriteLine("Please put (1) to Complete and (0) Not Completed.\n");
 
 
-
+                        //User input to the database on completion of daily entrys 
                         //Add Loop so only inputs are correct
                         Console.Write("Activity 1): ");
                         entry1 = Console.ReadLine();
